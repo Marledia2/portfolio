@@ -100,9 +100,15 @@ h2 {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .skills-wrapper {
@@ -138,6 +144,9 @@ h2 {
     border-radius: 16px;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover { 
@@ -154,10 +163,41 @@ h2 {
     color: var(--text-muted); 
     margin-bottom: 20px; 
 }
-.project-card a { 
+.project-card > a { 
     color: var(--primary); 
     text-decoration: none; 
-    font-weight: bold; 
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.project-image {
+    margin-top: auto;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.icon-btn {
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.15) translateY(-5px);
+    color: #ffffff;
 }
 
 .badge-wip { 
@@ -170,6 +210,8 @@ h2 {
     padding: 4px 10px; 
     border-radius: 20px; 
     font-weight: bold; 
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
 #contact { 
@@ -223,4 +265,9 @@ footer {
     padding: 40px; 
     color: var(--text-muted); 
     text-align: center; 
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
